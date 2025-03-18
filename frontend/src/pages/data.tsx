@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps<APIDataPageProps> = async ()
 
     const data: APIData = await res.json();
     return { props: { data } };
-  } catch (error) {
+  } catch {
     return { props: { data: { message: "Error fetching data" } } };
   }
 };
