@@ -9,10 +9,12 @@ interface APIDataPageProps {
   serverData: APIData;
 }
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://test-full-stack-app-backend.onrender.com";
+
 // Fetch data on the server (runs only on the backend)
 export const getServerSideProps: GetServerSideProps<APIDataPageProps> = async () => {
   try {
-    const res = await fetch("https://test-full-stack-app-backend.onrender.com/api/data");
+    const res = await fetch(`${API_BASE_URL}/api/data`);
     if (!res.ok) throw new Error("Failed to fetch API data");
 
     const serverData: APIData = await res.json();
@@ -29,7 +31,7 @@ export default function APIDataPage({ serverData }: APIDataPageProps) {
 
   // Fetch data on the client (runs in the browser)
   useEffect(() => {
-    fetch("https://test-full-stack-app-backend.onrender.com/api/data")
+    fetch(`${API_BASE_URL}/api/data`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch API data (Client)");
         return res.json();
