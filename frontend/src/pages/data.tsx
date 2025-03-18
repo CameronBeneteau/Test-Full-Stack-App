@@ -9,7 +9,7 @@ interface APIDataPageProps {
   serverData: APIData;
 }
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://test-full-stack-app-backend.onrender.com";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 // Fetch data on the server (runs only on the backend)
 export const getServerSideProps: GetServerSideProps<APIDataPageProps> = async () => {
