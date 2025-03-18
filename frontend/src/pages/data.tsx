@@ -10,7 +10,7 @@ interface APIDataPageProps {
 
 export const getServerSideProps: GetServerSideProps<APIDataPageProps> = async () => {
   try {
-    const res = await fetch("http://0.0.0.0:5555/api/data");
+    const res = await fetch("https://test-full-stack-app-backend.onrender.com/api/data");
     if (!res.ok) throw new Error("Failed to fetch API data");
 
     const data: APIData = await res.json();
