@@ -8,6 +8,9 @@ services:
   buildCommand: yarn && yarn build
   startCommand: yarn start
   rootDir: frontend
+  envVars:
+    - key: NEXT_PUBLIC_API_BASE_URL
+      value: https://test-full-stack-app-backend.onrender.com
 - type: web
   name: Test-Full-Stack-App-Backend
   runtime: python
